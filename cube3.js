@@ -1,4 +1,4 @@
-const SKYBOX_IMG = 'https://uploads-ssl.webflow.com/61e1a061b07c61ff1770ca68/61e466244c945f70c520149d_masahiro-miyagi-hi9ZNs7EY3c-unsplash-2.jpg';
+const SKYBOX_IMG = 'https://uploads-ssl.webflow.com/63d9d7a170c38b820b42fc9f/63d9ee53897d356d3fb491f0_Artboard%20%E2%80%93%201.jpg';
 
 class App {
   constructor() {
