@@ -1,5 +1,12 @@
 const SKYBOX_IMG = 'https://uploads-ssl.webflow.com/61e1a061b07c61ff1770ca68/61e466244c945f70c520149d_masahiro-miyagi-hi9ZNs7EY3c-unsplash-2.jpg';
 
+window.onload = function() {
+  var renderer = new THREE.WebGLRenderer();
+  var renderDiv = document.getElementById("renderhere");
+  renderer.setSize(renderDiv.clientWidth, renderDiv.clientHeight);
+  renderDiv.appendChild(renderer.domElement);
+};
+
 
 class App {
   constructor() {
