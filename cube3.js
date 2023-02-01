@@ -13,27 +13,16 @@ class App {
     methods.forEach((method) => this[method] = this[method].bind(this));
   }
 
-
-
- _setup() {
+  _setup() {
     const renderer = this._renderer = new THREE.WebGLRenderer({antialias: true});
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
     const container = document.getElementById("renderhere");
     container.appendChild(renderer.domElement);
-
-   window.addEventListener("resize", () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-   });
-
-
+    this._resize();
 
     this._scene = new THREE.Scene();
     const camera = this._camera = new MousePerspectiveCamera(
       45,
-      window.innerWidth / window.innerHeight,
+      container.offsetWidth / container.offsetHeight,
       0.1,
       1000
     );
@@ -84,10 +73,11 @@ class App {
   _resize(e) {
     const renderer = this._renderer;
     const camera = this._camera;
+    const container = document.getElementById("renderhere");
 
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = container.offsetWidth / container.offsetHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
   }
 }
 
